@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — WebScraper.pro{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="page-header-content">
+        <h1 class="page-title">Dashboard</h1>
+        <p class="page-subtitle">Monitor your scraping operations at a glance</p>
+    </div>
+    <a href="{{ url_for('jobs.new_job') }}" class="btn btn-primary btn-glow">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        New Scrape Job
+    </a>
+</div>
+
+<!-- Stats Grid -->
+<div class="stats-grid" id="stats-grid">
+    <div class="stat-card stat-card-primary">
+        <div class="stat-icon">📊</div>
+        <div class="stat-info">
+            <span class="stat-value">{{ stats.total_jobs }}</span>
+            <span class="stat-label">Total Jobs</span>
+        </div>
+    </div>
+    <div class="stat-card stat-card-success">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+            <span class="stat-value">{{ stats.completed_jobs }}</span>
+            <span class="stat-label">Completed</span>
+        </div>
+    </div>
+    <div class="stat-card stat-card-warning">
+        <div class="stat-icon">⏳</div>
+        <div class="stat-info">
+            <span class="stat-value">{{ stats.running_jobs + stats.pending_jobs }}</span>
+            <span class="stat-label">In Progress</span>
+        </div>
+    </div>
+    <div class="stat-card stat-card-danger">
+        <div class="stat-icon">❌</div>
+        <div class="stat-info">
+            <span class="stat-value">{{ stats.failed_jobs }}</span>
+            <span class="stat-label">Failed</span>
+        </div>
+    </div>
+    <div class="stat-card stat-card-info">
+        <div class="stat-icon">📦</div>
+        <div class="stat-info">
+            <span class="stat-value">{{ stats.total_items_scraped }}</span>
+            <span class="stat-label">Items Scraped</span>
+        </div>
+    </div>
+    <div class="stat-card stat-card-accent">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-info">
+            <span class="stat-value">{{ stats.success_rate }}%</span>
+            <span class="stat-label">Success Rate</span>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Jobs -->
+<div class="card" id="recent-jobs-card">
+    <div class="card-header">
+        <h2 class="card-title">Recent Jobs</h2>
+        <a href="{{ url_for('jobs.list_view') }}" class="btn btn-outline btn-sm">View All →</a>
+    </div>
+    <div class="card-body">
+        {% if stats.recent_jobs %}
+        <div class="table-responsive">
+            <table class="table" id="recent-jobs-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>URL</th>
+                        <th>Status</th>
+                        <th>Items</th>
+                        <th>Duration</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for job in stats.recent_jobs %}
+                    <tr class="table-row-hover" onclick="window.location='/jobs/{{ job.id }}'">
+                        <td><span class="badge badge-muted">#{{ job.id }}</span></td>
+                        <td class="text-truncate" style="max-width: 200px;">{{ job.name }}</td>
+                        <td class="text-truncate text-muted" style="max-width: 250px;">{{ job.url }}</td>
+                        <td>
+                            <span class="status-badge status-{{ job.status }}">
+                                <span class="status-dot"></span>
+                                {{ job.status | capitalize }}
+                            </span>
+                        </td>
+                        <td>{{ job.total_items }}</td>
+                        <td>{% if job.duration_seconds %}{{ "%.1f"|format(job.duration_seconds) }}s{% else %}—{% endif %}</td>
+                        <td class="text-muted">{{ job.created_at[:16] if job.created_at else '—' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-icon">🕸️</div>
+            <h3>No scrape jobs yet</h3>
+            <p>Create your first scraping job to get started.</p>
+            <a href="{{ url_for('jobs.new_job') }}" class="btn btn-primary">Create Your First Job</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

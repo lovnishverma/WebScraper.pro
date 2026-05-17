@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}New Scrape Job — WebScraper.pro{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="page-header-content">
+        <h1 class="page-title">Create Scrape Job</h1>
+        <p class="page-subtitle">Configure and launch a new web scraping task</p>
+    </div>
+</div>
+
+<form method="post" action="{{ url_for('jobs.new_job') }}" id="new-job-form" class="job-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <!-- Basic Config -->
+    <div class="card form-section" id="section-basic">
+        <div class="card-header">
+            <h2 class="card-title">🎯 Basic Configuration</h2>
+        </div>
+        <div class="card-body">
+            <div class="form-grid">
+                <div class="form-group form-full">
+                    <label for="name" class="form-label">Job Name</label>
+                    <input type="text" name="name" id="name" class="form-input {% if errors.get('name') %}form-error{% endif %}" placeholder="e.g. Product Prices - Amazon" value="{{ form_data.get('name', '') }}">
+                    {% if errors.get('name') %}<span class="form-error-text">{{ errors.name }}</span>{% endif %}
+                </div>
+
+                <div class="form-group form-full">
+                    <label for="url" class="form-label">Target URL <span class="required">*</span></label>
+                    <input type="url" name="url" id="url" class="form-input {% if errors.get('url') %}form-error{% endif %}" placeholder="https://example.com/page" value="{{ form_data.get('url', '') }}" required>
+                    {% if errors.get('url') %}<span class="form-error-text">{{ errors.url }}</span>{% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="scrape_type" class="form-label">Scrape Type</label>
+                    <select name="scrape_type" id="scrape_type" class="form-select">
+                        <option value="static" {% if form_data.get('scrape_type') == 'static' %}selected{% endif %}>Static (Requests + BS4)</option>
+                        <option value="dynamic" {% if form_data.get('scrape_type') == 'dynamic' %}selected{% endif %}>Dynamic (Playwright)</option>
+                    </select>
+                    <span class="form-hint">Use Dynamic for JS-rendered pages</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="extraction_type" class="form-label">Extraction Type</label>
+                    <select name="extraction_type" id="extraction_type" class="form-select {% if errors.get('extraction_type') %}form-error{% endif %}">
+                        <option value="text" {% if form_data.get('extraction_type') == 'text' %}selected{% endif %}>Text Content</option>
+                        <option value="links" {% if form_data.get('extraction_type') == 'links' %}selected{% endif %}>Links (URLs)</option>
+                        <option value="images" {% if form_data.get('extraction_type') == 'images' %}selected{% endif %}>Image URLs</option>
+                        <option value="attributes" {% if form_data.get('extraction_type') == 'attributes' %}selected{% endif %}>HTML Attributes</option>
+                        <option value="table" {% if form_data.get('extraction_type') == 'table' %}selected{% endif %}>Table Data</option>
+                        <option value="json_ld" {% if form_data.get('extraction_type') == 'json_ld' %}selected{% endif %}>JSON-LD Schema</option>
+                        <option value="full_html" {% if form_data.get('extraction_type') == 'full_html' %}selected{% endif %}>Full HTML</option>
+                    </select>
+                    {% if errors.get('extraction_type') %}<span class="form-error-text">{{ errors.extraction_type }}</span>{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Selectors -->
+    <div class="card form-section" id="section-selectors">
+        <div class="card-header">
+            <h2 class="card-title">🔎 Selectors</h2>
+            <span class="card-subtitle">Define what to extract (leave blank for all elements)</span>
+        </div>
+        <div class="card-body">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="css_selector" class="form-label">CSS Selector</label>
+                    <input type="text" name="css_selector" id="css_selector" class="form-input {% if errors.get('css_selector') %}form-error{% endif %}" placeholder="e.g. .product-card h2" value="{{ form_data.get('css_selector', '') }}">
+                    {% if errors.get('css_selector') %}<span class="form-error-text">{{ errors.css_selector }}</span>{% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="xpath_selector" class="form-label">XPath Selector</label>
+                    <input type="text" name="xpath_selector" id="xpath_selector" class="form-input {% if errors.get('xpath_selector') %}form-error{% endif %}" placeholder="e.g. //div[@class='item']/h2" value="{{ form_data.get('xpath_selector', '') }}">
+                    {% if errors.get('xpath_selector') %}<span class="form-error-text">{{ errors.xpath_selector }}</span>{% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="html_tag" class="form-label">HTML Tag</label>
+                    <input type="text" name="html_tag" id="html_tag" class="form-input" placeholder="e.g. h2, p, div" value="{{ form_data.get('html_tag', '') }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="attribute_name" class="form-label">Attribute Name</label>
+                    <input type="text" name="attribute_name" id="attribute_name" class="form-input" placeholder="e.g. href, src, data-id" value="{{ form_data.get('attribute_name', '') }}">
+                    <span class="form-hint">Used when extraction type is "Attributes"</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advanced Options -->
+    <div class="card form-section" id="section-advanced">
+        <div class="card-header collapsible" onclick="toggleSection('advanced-body')">
+            <h2 class="card-title">⚙️ Advanced Options</h2>
+            <svg class="collapse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="card-body" id="advanced-body">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="delay_seconds" class="form-label">Delay Between Requests (s)</label>
+                    <input type="number" name="delay_seconds" id="delay_seconds" class="form-input {% if errors.get('delay_seconds') %}form-error{% endif %}" value="{{ form_data.get('delay_seconds', '1.0') }}" step="0.1" min="0" max="60">
+                    {% if errors.get('delay_seconds') %}<span class="form-error-text">{{ errors.delay_seconds }}</span>{% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="timeout_seconds" class="form-label">Timeout (s)</label>
+                    <input type="number" name="timeout_seconds" id="timeout_seconds" class="form-input" value="{{ form_data.get('timeout_seconds', '30') }}" min="5" max="120">
+                </div>
+
+                <div class="form-group">
+                    <label for="max_retries" class="form-label">Max Retries</label>
+                    <input type="number" name="max_retries" id="max_retries" class="form-input" value="{{ form_data.get('max_retries', '3') }}" min="0" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label for="max_pages" class="form-label">Max Pages</label>
+                    <input type="number" name="max_pages" id="max_pages" class="form-input {% if errors.get('max_pages') %}form-error{% endif %}" value="{{ form_data.get('max_pages', '1') }}" min="1" max="200">
+                    {% if errors.get('max_pages') %}<span class="form-error-text">{{ errors.max_pages }}</span>{% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="scroll_count" class="form-label">Scroll Count</label>
+                    <input type="number" name="scroll_count" id="scroll_count" class="form-input" value="{{ form_data.get('scroll_count', '3') }}" min="1" max="50">
+                    <span class="form-hint">For infinite scroll pages</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="user_agent" class="form-label">Custom User Agent</label>
+                    <input type="text" name="user_agent" id="user_agent" class="form-input" placeholder="Leave blank for random UA" value="{{ form_data.get('user_agent', '') }}">
+                </div>
+
+                <div class="form-group form-full">
+                    <label for="custom_headers" class="form-label">Custom Headers (JSON)</label>
+                    <textarea name="custom_headers" id="custom_headers" class="form-textarea" rows="3" placeholder='{"Accept": "text/html", "Cookie": "session=abc123"}'>{{ form_data.get('custom_headers', '') }}</textarea>
+                </div>
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="form-checkboxes">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="follow_pagination" {% if form_data.get('follow_pagination') %}checked{% endif %}>
+                    <span class="checkbox-custom"></span>
+                    Follow Pagination
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="infinite_scroll" {% if form_data.get('infinite_scroll') %}checked{% endif %}>
+                    <span class="checkbox-custom"></span>
+                    Infinite Scroll
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="check_robots_txt" {% if form_data.get('check_robots_txt', True) %}checked{% endif %}>
+                    <span class="checkbox-custom"></span>
+                    Respect robots.txt
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="deduplicate" {% if form_data.get('deduplicate', True) %}checked{% endif %}>
+                    <span class="checkbox-custom"></span>
+                    Deduplicate Results
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="download_images" {% if form_data.get('download_images') %}checked{% endif %}>
+                    <span class="checkbox-custom"></span>
+                    Download Images
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="form-actions">
+        <a href="{{ url_for('jobs.list_view') }}" class="btn btn-ghost">Cancel</a>
+        <button type="submit" class="btn btn-primary btn-glow btn-lg" id="submit-job">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Launch Scrape Job
+        </button>
+    </div>
+</form>
+{% endblock %}

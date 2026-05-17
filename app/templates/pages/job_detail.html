@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+{% block title %}Job #{{ job.id }} — WebScraper.pro{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="page-header-content">
+        <h1 class="page-title">{{ job.name }}</h1>
+        <p class="page-subtitle">Job #{{ job.id }} — {{ job.url }}</p>
+    </div>
+    <div class="page-actions">
+        {% if job.status in ('pending', 'running') %}
+        <form method="post" action="{{ url_for('jobs.cancel', job_id=job.id) }}" class="inline-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="btn btn-warning" id="btn-cancel">⏸️ Cancel</button>
+        </form>
+        {% endif %}
+        {% if job.status in ('completed', 'failed', 'cancelled') %}
+        <form method="post" action="{{ url_for('jobs.rerun', job_id=job.id) }}" class="inline-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="btn btn-secondary" id="btn-rerun">🔄 Re-run</button>
+        </form>
+        {% endif %}
+        <form method="post" action="{{ url_for('jobs.delete', job_id=job.id) }}" class="inline-form" onsubmit="return confirm('Permanently delete this job and all results?')">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="btn btn-danger" id="btn-delete">🗑️ Delete</button>
+        </form>
+    </div>
+</div>
+
+<!-- Status Bar -->
+<div class="status-bar status-bar-{{ job.status }}" id="job-status-bar" data-job-id="{{ job.id }}" data-status="{{ job.status }}">
+    <div class="status-bar-inner">
+        <span class="status-badge status-{{ job.status }} status-lg">
+            <span class="status-dot"></span>
+            {{ job.status | upper }}
+        </span>
+        <div class="status-meta">
+            <span>📦 <strong>{{ job.total_items }}</strong> items</span>
+            <span>📄 <strong>{{ job.pages_scraped }}</strong> pages</span>
+            {% if job.error_count %}<span>❌ <strong>{{ job.error_count }}</strong> errors</span>{% endif %}
+            {% if job.duration_seconds %}<span>⏱️ <strong>{{ "%.2f"|format(job.duration_seconds) }}</strong>s</span>{% endif %}
+        </div>
+    </div>
+    {% if job.status in ('pending', 'running') %}
+    <div class="progress-bar">
+        <div class="progress-bar-fill progress-animate"></div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Job Info -->
+<div class="detail-grid">
+    <div class="card" id="job-config-card">
+        <div class="card-header">
+            <h2 class="card-title">⚙️ Configuration</h2>
+        </div>
+        <div class="card-body">
+            <div class="detail-list">
+                <div class="detail-item">
+                    <span class="detail-key">URL</span>
+                    <a href="{{ job.url }}" target="_blank" rel="noopener" class="detail-value link">{{ job.url }}</a>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-key">Scrape Type</span>
+                    <span class="detail-value"><span class="badge badge-type">{{ job.scrape_type }}</span></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-key">Extraction</span>
+                    <span class="detail-value">{{ job.extraction_type }}</span>
+                </div>
+                {% if job.css_selector %}
+                <div class="detail-item">
+                    <span class="detail-key">CSS Selector</span>
+                    <code class="detail-value code">{{ job.css_selector }}</code>
+                </div>
+                {% endif %}
+                {% if job.xpath_selector %}
+                <div class="detail-item">
+                    <span class="detail-key">XPath</span>
+                    <code class="detail-value code">{{ job.xpath_selector }}</code>
+                </div>
+                {% endif %}
+                {% if job.html_tag %}
+                <div class="detail-item">
+                    <span class="detail-key">HTML Tag</span>
+                    <code class="detail-value code">{{ job.html_tag }}</code>
+                </div>
+                {% endif %}
+                <div class="detail-item">
+                    <span class="detail-key">Pagination</span>
+                    <span class="detail-value">{{ 'Yes' if job.follow_pagination else 'No' }} (max {{ job.max_pages }} pages)</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-key">Delay</span>
+                    <span class="detail-value">{{ job.delay_seconds }}s</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-key">Created</span>
+                    <span class="detail-value">{{ job.created_at.strftime('%Y-%m-%d %H:%M:%S') if job.created_at else '—' }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export -->
+    <div class="card" id="export-card">
+        <div class="card-header">
+            <h2 class="card-title">📤 Export Results</h2>
+        </div>
+        <div class="card-body">
+            {% if job.total_items > 0 %}
+            <div class="export-buttons">
+                <a href="{{ url_for('jobs.export', job_id=job.id, fmt='json') }}" class="btn btn-export" id="export-json">
+                    <span class="export-icon">{ }</span>
+                    <span>JSON</span>
+                </a>
+                <a href="{{ url_for('jobs.export', job_id=job.id, fmt='csv') }}" class="btn btn-export" id="export-csv">
+                    <span class="export-icon">📊</span>
+                    <span>CSV</span>
+                </a>
+                <a href="{{ url_for('jobs.export', job_id=job.id, fmt='excel') }}" class="btn btn-export" id="export-excel">
+                    <span class="export-icon">📗</span>
+                    <span>Excel</span>
+                </a>
+            </div>
+            {% if exports %}
+            <div class="export-history">
+                <h4>Previous Exports</h4>
+                {% for exp in exports %}
+                <div class="export-item">
+                    <span class="badge badge-type">{{ exp.format }}</span>
+                    <span>{{ exp.filename }}</span>
+                    <span class="text-muted">{{ exp.row_count }} rows</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% else %}
+            <div class="empty-state-sm">
+                <p class="text-muted">No results to export yet.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Results -->
+<div class="card" id="results-card">
+    <div class="card-header">
+        <h2 class="card-title">📦 Scraped Results <span class="count-badge">{{ results.total }}</span></h2>
+    </div>
+    <div class="card-body">
+        {% if results.items %}
+        <div class="table-responsive">
+            <table class="table table-compact" id="results-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Page</th>
+                        <th>Type</th>
+                        <th>Content</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in results.items %}
+                    <tr>
+                        <td>{{ r.item_index }}</td>
+                        <td>{{ r.page_num }}</td>
+                        <td><span class="badge badge-muted">{{ r.content_type }}</span></td>
+                        <td class="content-cell">
+                            <div class="content-preview">{{ r.content[:300] if r.content else '—' }}{% if r.content and r.content|length > 300 %}…{% endif %}</div>
+                        </td>
+                        <td class="text-truncate text-muted" style="max-width:180px;">{{ r.page_url }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if results.pages > 1 %}
+        <div class="pagination">
+            {% if results.has_prev %}
+            <a href="{{ url_for('jobs.detail', job_id=job.id, rpage=results.prev_num) }}" class="pagination-link">← Prev</a>
+            {% endif %}
+            {% for p in results.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+                {% if p %}
+                    <a href="{{ url_for('jobs.detail', job_id=job.id, rpage=p) }}" class="pagination-link {% if p == results.page %}active{% endif %}">{{ p }}</a>
+                {% else %}
+                    <span class="pagination-ellipsis">…</span>
+                {% endif %}
+            {% endfor %}
+            {% if results.has_next %}
+            <a href="{{ url_for('jobs.detail', job_id=job.id, rpage=results.next_num) }}" class="pagination-link">Next →</a>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% else %}
+        <div class="empty-state-sm">
+            <p class="text-muted">No results scraped yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Logs -->
+<div class="card" id="logs-card">
+    <div class="card-header collapsible" onclick="toggleSection('logs-body')">
+        <h2 class="card-title">📋 Job Logs <span class="count-badge">{{ logs.total }}</span></h2>
+        <svg class="collapse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="card-body" id="logs-body">
+        {% if logs.items %}
+        <div class="logs-container">
+            {% for log in logs.items %}
+            <div class="log-entry log-{{ log.level | lower }}">
+                <span class="log-time">{{ log.created_at.strftime('%H:%M:%S') if log.created_at else '' }}</span>
+                <span class="log-level">{{ log.level }}</span>
+                <span class="log-message">{{ log.message }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-muted">No logs recorded.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+{% if job.status in ('pending', 'running') %}
+<script>
+    // Poll for status updates
+    (function() {
+        const jobId = {{ job.id }};
+        const statusBar = document.getElementById('job-status-bar');
+        const interval = setInterval(async () => {
+            try {
+                const res = await fetch(`/jobs/api/jobs/${jobId}/status`);
+                const data = await res.json();
+                if (data.status !== '{{ job.status }}') {
+                    window.location.reload();
+                }
+                // Update live counts
+                const meta = statusBar.querySelector('.status-meta');
+                if (meta) {
+                    meta.innerHTML = `
+                        <span>📦 <strong>${data.total_items}</strong> items</span>
+                        <span>📄 <strong>${data.pages_scraped}</strong> pages</span>
+                        ${data.error_count ? `<span>❌ <strong>${data.error_count}</strong> errors</span>` : ''}
+                    `;
+                }
+            } catch(e) { /* silently continue */ }
+        }, 2000);
+
+        // Stop polling when job completes
+        if (!['pending', 'running'].includes('{{ job.status }}')) {
+            clearInterval(interval);
+        }
+    })();
+</script>
+{% endif %}
+{% endblock %}

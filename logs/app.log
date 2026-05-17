@@ -1,0 +1,262 @@
+2026-05-17 14:44:10 [INFO    ] app: WebScraper Platform started [development]
+2026-05-17 14:44:10 [INFO    ] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-17 14:44:10 [INFO    ] werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-17 14:44:10 [INFO    ] werkzeug:  * Restarting with watchdog (windowsapi)
+2026-05-17 14:44:11 [INFO    ] app: WebScraper Platform started [development]
+2026-05-17 14:44:11 [WARNING ] werkzeug:  * Debugger is active!
+2026-05-17 14:44:11 [INFO    ] werkzeug:  * Debugger PIN: 590-942-950
+2026-05-17 14:44:32 [DEBUG   ] app.middleware.security: GET / -> 200 (94.00ms)
+2026-05-17 14:44:32 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:44:32] "GET / HTTP/1.1" 200 -
+2026-05-17 14:44:32 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 200 (0.00ms)
+2026-05-17 14:44:32 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:44:32] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-05-17 14:44:32 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 200 (0.00ms)
+2026-05-17 14:44:32 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:44:32] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-05-17 14:44:32 [DEBUG   ] app.middleware.security: GET /favicon.ico -> 404 (0.00ms)
+2026-05-17 14:44:32 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:44:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-05-17 14:44:44 [DEBUG   ] app.middleware.security: GET /jobs/new -> 200 (94.00ms)
+2026-05-17 14:44:44 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:44:44] "GET /jobs/new HTTP/1.1" 200 -
+2026-05-17 14:44:44 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:44:44 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:44:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:44:44 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:44:44 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:44:44] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\__init__ (1).py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\__init__ (2).py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\__init__ (3).py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\__init__ (4).py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\__init__ (5).py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\__init__ (6).py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\__init__ (7).py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\__init__.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\engine.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\models.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\job_service.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\export_service.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\security.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\main.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\jobs.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\validators.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\logging_config.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\settings.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pygments\\plugin.py', reloading
+2026-05-17 14:45:18 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\dns\\rdtypes\\IN\\A.py', reloading
+2026-05-17 14:45:19 [INFO    ] werkzeug:  * Restarting with watchdog (windowsapi)
+2026-05-17 14:45:20 [INFO    ] app: WebScraper Platform started [development]
+2026-05-17 14:45:20 [WARNING ] werkzeug:  * Debugger is active!
+2026-05-17 14:45:20 [INFO    ] werkzeug:  * Debugger PIN: 590-942-950
+2026-05-17 14:46:31 [DEBUG   ] app.middleware.security: POST /jobs/new -> 302 (62.00ms)
+2026-05-17 14:46:31 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:31] "[32mPOST /jobs/new HTTP/1.1[0m" 302 -
+2026-05-17 14:46:31 [DEBUG   ] app.middleware.security: GET /jobs/1 -> 200 (78.00ms)
+2026-05-17 14:46:31 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:31] "GET /jobs/1 HTTP/1.1" 200 -
+2026-05-17 14:46:31 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:46:31 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:46:31 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:31] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:46:31 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:46:34 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/1/status -> 200 (0.00ms)
+2026-05-17 14:46:34 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:34] "GET /jobs/api/jobs/1/status HTTP/1.1" 200 -
+2026-05-17 14:46:36 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/1/status -> 200 (0.00ms)
+2026-05-17 14:46:36 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:36] "GET /jobs/api/jobs/1/status HTTP/1.1" 200 -
+2026-05-17 14:46:38 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/1/status -> 200 (0.00ms)
+2026-05-17 14:46:38 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:38] "GET /jobs/api/jobs/1/status HTTP/1.1" 200 -
+2026-05-17 14:46:38 [DEBUG   ] app.middleware.security: GET /jobs/1 -> 200 (0.00ms)
+2026-05-17 14:46:38 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:38] "GET /jobs/1 HTTP/1.1" 200 -
+2026-05-17 14:46:38 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:46:38 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:46:38 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:46:38 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:46:38] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:47:34 [DEBUG   ] app.middleware.security: GET / -> 200 (62.00ms)
+2026-05-17 14:47:34 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:47:34] "GET / HTTP/1.1" 200 -
+2026-05-17 14:47:34 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:47:34 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:47:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:47:34 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:47:34 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:47:34] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:47:55 [DEBUG   ] app.middleware.security: GET /jobs/1 -> 200 (16.00ms)
+2026-05-17 14:47:55 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:47:55] "GET /jobs/1 HTTP/1.1" 200 -
+2026-05-17 14:47:55 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:47:55 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:47:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:47:55 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:47:55 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:47:55] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:48:14 [DEBUG   ] app.middleware.security: GET /jobs/new -> 200 (31.00ms)
+2026-05-17 14:48:14 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:14] "GET /jobs/new HTTP/1.1" 200 -
+2026-05-17 14:48:14 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:48:14 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:48:14 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:48:15 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:15] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:48:38 [DEBUG   ] app.middleware.security: POST /jobs/new -> 302 (31.00ms)
+2026-05-17 14:48:38 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:38] "[32mPOST /jobs/new HTTP/1.1[0m" 302 -
+2026-05-17 14:48:38 [DEBUG   ] app.middleware.security: GET /jobs/2 -> 200 (79.00ms)
+2026-05-17 14:48:38 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:38] "GET /jobs/2 HTTP/1.1" 200 -
+2026-05-17 14:48:39 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:48:39 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:48:39 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:48:39 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:39] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:48:41 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/2/status -> 200 (15.00ms)
+2026-05-17 14:48:41 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:41] "GET /jobs/api/jobs/2/status HTTP/1.1" 200 -
+2026-05-17 14:48:43 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/2/status -> 200 (16.00ms)
+2026-05-17 14:48:43 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:43] "GET /jobs/api/jobs/2/status HTTP/1.1" 200 -
+2026-05-17 14:48:43 [DEBUG   ] app.middleware.security: GET /jobs/2 -> 200 (47.00ms)
+2026-05-17 14:48:43 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:43] "GET /jobs/2 HTTP/1.1" 200 -
+2026-05-17 14:48:43 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:48:43 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:48:43 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:48:43 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:43] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:48:53 [DEBUG   ] app.middleware.security: GET /jobs/new -> 200 (0.00ms)
+2026-05-17 14:48:53 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:53] "GET /jobs/new HTTP/1.1" 200 -
+2026-05-17 14:48:53 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:48:53 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:48:53 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:48:53 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:48:53] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:49:14 [DEBUG   ] app.middleware.security: POST /jobs/new -> 302 (32.00ms)
+2026-05-17 14:49:14 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:49:14] "[32mPOST /jobs/new HTTP/1.1[0m" 302 -
+2026-05-17 14:49:14 [DEBUG   ] app.middleware.security: GET /jobs/3 -> 200 (47.00ms)
+2026-05-17 14:49:14 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:49:14] "GET /jobs/3 HTTP/1.1" 200 -
+2026-05-17 14:49:14 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:49:14 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:49:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:49:14 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:49:14 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:49:14] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:49:16 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/3/status -> 200 (0.00ms)
+2026-05-17 14:49:16 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:49:16] "GET /jobs/api/jobs/3/status HTTP/1.1" 200 -
+2026-05-17 14:49:16 [DEBUG   ] app.middleware.security: GET /jobs/3 -> 200 (47.00ms)
+2026-05-17 14:49:16 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:49:16] "GET /jobs/3 HTTP/1.1" 200 -
+2026-05-17 14:49:16 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (15.00ms)
+2026-05-17 14:49:16 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:49:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:49:16 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:49:16 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:49:16] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:50:47 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\app\\scrapers\\engine.py', reloading
+2026-05-17 14:50:47 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\Desktop\\webscraping\\app\\scrapers\\engine.py', reloading
+2026-05-17 14:50:47 [INFO    ] werkzeug:  * Restarting with watchdog (windowsapi)
+2026-05-17 14:50:48 [INFO    ] app: WebScraper Platform started [development]
+2026-05-17 14:50:48 [WARNING ] werkzeug:  * Debugger is active!
+2026-05-17 14:50:48 [INFO    ] werkzeug:  * Debugger PIN: 590-942-950
+2026-05-17 14:51:04 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\brotli.py', reloading
+2026-05-17 14:51:04 [INFO    ] werkzeug:  * Detected change in 'C:\\Users\\princ\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\brotli.py', reloading
+2026-05-17 14:51:05 [INFO    ] werkzeug:  * Restarting with watchdog (windowsapi)
+2026-05-17 14:51:06 [INFO    ] app: WebScraper Platform started [development]
+2026-05-17 14:51:06 [WARNING ] werkzeug:  * Debugger is active!
+2026-05-17 14:51:06 [INFO    ] werkzeug:  * Debugger PIN: 590-942-950
+2026-05-17 14:52:00 [INFO    ] app: WebScraper Platform started [development]
+2026-05-17 14:52:00 [INFO    ] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-17 14:52:00 [INFO    ] werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-17 14:52:00 [INFO    ] werkzeug:  * Restarting with watchdog (windowsapi)
+2026-05-17 14:52:01 [INFO    ] app: WebScraper Platform started [development]
+2026-05-17 14:52:01 [WARNING ] werkzeug:  * Debugger is active!
+2026-05-17 14:52:01 [INFO    ] werkzeug:  * Debugger PIN: 590-942-950
+2026-05-17 14:52:12 [DEBUG   ] app.middleware.security: GET /jobs/new -> 200 (31.00ms)
+2026-05-17 14:52:12 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:52:12] "GET /jobs/new HTTP/1.1" 200 -
+2026-05-17 14:52:12 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:52:12 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:52:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:52:12 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:52:12 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:52:12] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:53:26 [DEBUG   ] app.middleware.security: POST /jobs/new -> 302 (171.00ms)
+2026-05-17 14:53:26 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:26] "[32mPOST /jobs/new HTTP/1.1[0m" 302 -
+2026-05-17 14:53:27 [DEBUG   ] app.middleware.security: GET /jobs/4 -> 200 (250.00ms)
+2026-05-17 14:53:27 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:27] "GET /jobs/4 HTTP/1.1" 200 -
+2026-05-17 14:53:27 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (16.00ms)
+2026-05-17 14:53:27 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:53:27 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:53:27 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:27] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:53:29 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/4/status -> 200 (15.00ms)
+2026-05-17 14:53:29 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:29] "GET /jobs/api/jobs/4/status HTTP/1.1" 200 -
+2026-05-17 14:53:29 [DEBUG   ] app.middleware.security: GET /jobs/4 -> 200 (15.00ms)
+2026-05-17 14:53:29 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:29] "GET /jobs/4 HTTP/1.1" 200 -
+2026-05-17 14:53:29 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:53:29 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:53:29 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (16.00ms)
+2026-05-17 14:53:29 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:29] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:53:31 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/4/status -> 200 (0.00ms)
+2026-05-17 14:53:31 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:31] "GET /jobs/api/jobs/4/status HTTP/1.1" 200 -
+2026-05-17 14:53:33 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/4/status -> 200 (15.00ms)
+2026-05-17 14:53:33 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:33] "GET /jobs/api/jobs/4/status HTTP/1.1" 200 -
+2026-05-17 14:53:33 [DEBUG   ] app.middleware.security: GET /jobs/4 -> 200 (16.00ms)
+2026-05-17 14:53:33 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:33] "GET /jobs/4 HTTP/1.1" 200 -
+2026-05-17 14:53:33 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (15.00ms)
+2026-05-17 14:53:33 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:53:33 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:53:33 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:53:33] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:57:40 [INFO    ] app: WebScraper Platform started [development]
+2026-05-17 14:57:40 [INFO    ] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-05-17 14:57:40 [INFO    ] werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-17 14:57:40 [INFO    ] werkzeug:  * Restarting with watchdog (windowsapi)
+2026-05-17 14:57:41 [INFO    ] app: WebScraper Platform started [development]
+2026-05-17 14:57:41 [WARNING ] werkzeug:  * Debugger is active!
+2026-05-17 14:57:41 [INFO    ] werkzeug:  * Debugger PIN: 590-942-950
+2026-05-17 14:57:53 [DEBUG   ] app.middleware.security: GET / -> 200 (63.00ms)
+2026-05-17 14:57:53 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:57:53] "GET / HTTP/1.1" 200 -
+2026-05-17 14:57:53 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 200 (0.00ms)
+2026-05-17 14:57:53 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:57:53] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-05-17 14:57:53 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 200 (0.00ms)
+2026-05-17 14:57:53 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:57:53] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-05-17 14:57:54 [DEBUG   ] app.middleware.security: GET /favicon.ico -> 404 (15.00ms)
+2026-05-17 14:57:54 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:57:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-05-17 14:58:06 [DEBUG   ] app.middleware.security: GET /jobs/ -> 200 (47.00ms)
+2026-05-17 14:58:06 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:06] "GET /jobs/ HTTP/1.1" 200 -
+2026-05-17 14:58:06 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:58:06 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:58:06 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:58:06 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:06] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:58:10 [DEBUG   ] app.middleware.security: GET /jobs/new -> 200 (16.00ms)
+2026-05-17 14:58:10 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:10] "GET /jobs/new HTTP/1.1" 200 -
+2026-05-17 14:58:10 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:58:10 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:58:10 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:58:10 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:10] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:58:27 [DEBUG   ] app.middleware.security: GET / -> 200 (15.00ms)
+2026-05-17 14:58:27 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:27] "GET / HTTP/1.1" 200 -
+2026-05-17 14:58:27 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:58:27 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:58:27 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:58:27 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:27] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:58:32 [DEBUG   ] app.middleware.security: GET /jobs/ -> 200 (16.00ms)
+2026-05-17 14:58:32 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:32] "GET /jobs/ HTTP/1.1" 200 -
+2026-05-17 14:58:32 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:58:32 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:58:32 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:58:32 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:32] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:58:34 [DEBUG   ] app.middleware.security: GET /jobs/new -> 200 (0.00ms)
+2026-05-17 14:58:34 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:34] "GET /jobs/new HTTP/1.1" 200 -
+2026-05-17 14:58:34 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:58:34 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:58:34 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:58:34 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:34] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:58:36 [DEBUG   ] app.middleware.security: GET / -> 200 (0.00ms)
+2026-05-17 14:58:36 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:36] "GET / HTTP/1.1" 200 -
+2026-05-17 14:58:36 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:58:36 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:58:36 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:58:36 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:36] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:58:38 [DEBUG   ] app.middleware.security: GET /jobs/new -> 200 (0.00ms)
+2026-05-17 14:58:38 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:38] "GET /jobs/new HTTP/1.1" 200 -
+2026-05-17 14:58:38 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:58:38 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:58:38 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:58:38 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:38] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:58:49 [DEBUG   ] app.middleware.security: GET /jobs/new -> 200 (0.00ms)
+2026-05-17 14:58:49 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:49] "GET /jobs/new HTTP/1.1" 200 -
+2026-05-17 14:58:49 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:58:49 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:58:49 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:58:49 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:58:49] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:59:09 [DEBUG   ] app.middleware.security: POST /jobs/new -> 302 (31.00ms)
+2026-05-17 14:59:09 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:09] "[32mPOST /jobs/new HTTP/1.1[0m" 302 -
+2026-05-17 14:59:09 [DEBUG   ] app.middleware.security: GET /jobs/5 -> 200 (78.00ms)
+2026-05-17 14:59:09 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:09] "GET /jobs/5 HTTP/1.1" 200 -
+2026-05-17 14:59:09 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:59:09 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:59:09 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:59:09 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:09] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:59:11 [DEBUG   ] app.middleware.security: GET /jobs/api/jobs/5/status -> 200 (16.00ms)
+2026-05-17 14:59:11 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:11] "GET /jobs/api/jobs/5/status HTTP/1.1" 200 -
+2026-05-17 14:59:11 [DEBUG   ] app.middleware.security: GET /jobs/5 -> 200 (15.00ms)
+2026-05-17 14:59:11 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:11] "GET /jobs/5 HTTP/1.1" 200 -
+2026-05-17 14:59:11 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (16.00ms)
+2026-05-17 14:59:11 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:59:11 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:59:11 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:11] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-05-17 14:59:42 [DEBUG   ] app.middleware.security: GET / -> 200 (16.00ms)
+2026-05-17 14:59:42 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:42] "GET / HTTP/1.1" 200 -
+2026-05-17 14:59:42 [DEBUG   ] app.middleware.security: GET /static/css/style.css -> 304 (0.00ms)
+2026-05-17 14:59:42 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-05-17 14:59:42 [DEBUG   ] app.middleware.security: GET /static/js/app.js -> 304 (0.00ms)
+2026-05-17 14:59:42 [INFO    ] werkzeug: 127.0.0.1 - - [17/May/2026 14:59:42] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
