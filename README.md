@@ -24,6 +24,9 @@ Designed with a **premium dark-mode visual interface** featuring glassmorphism e
 ## Live Demo:
 [https://lovnishverma-webscraper-pro.hf.space](https://lovnishverma-webscraper-pro.hf.space)
 
+<img width="1920" height="1080" alt="webscraping" src="https://github.com/user-attachments/assets/79bc49e6-c919-42c6-8085-1a6bce599ee4" />
+
+
 ## 🌟 Key Features
 
 * **⚡ Dual Scraping Engines:**
