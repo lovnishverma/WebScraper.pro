@@ -38,21 +38,20 @@ COPY requirements.txt /app/
 RUN pip install --no-cache-dir -U pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Create a non-root user 'user' with UID 1000 (standard for Hugging Face Spaces)
-# This prevents permission issues when Hugging Face runs the container as UID 1000
-RUN useradd -m -u 1000 user && \
-    mkdir -p /app/database /app/logs /app/exports && \
-    chown -R user:user /app
+# Leverage the pre-created 'pwuser' user (UID 1000) already defined in the official Playwright image
+# This prevents UID collision errors during useradd and complies with HF Spaces UID 1000 requirement.
+RUN mkdir -p /app/database /app/logs /app/exports && \
+    chown -R 1000:1000 /app
 
-# Ensure that the Playwright browser files are fully readable/executable by our non-root user.
+# Ensure that the Playwright browser files are fully readable/executable by the non-root user.
 # In the official Playwright image, browsers are stored in /ms-playwright.
 RUN chmod -R 755 /ms-playwright
 
-# Copy the rest of the application files to the container and set ownership to 'user'
-COPY --chown=user:user . /app
+# Copy the rest of the application files to the container and set ownership to UID 1000 (pwuser)
+COPY --chown=1000:1000 . /app
 
-# Switch to the non-root user
-USER user
+# Switch to the non-root user (UID 1000)
+USER 1000
 
 # Expose the default port expected by Hugging Face Spaces (7860)
 EXPOSE 7860
