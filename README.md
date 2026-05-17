@@ -5,6 +5,7 @@ colorFrom: pink
 colorTo: indigo
 sdk: docker
 pinned: false
+license: mit
 ---
 
 # 🕷️ WebScraper.pro — Premium Web Scraping Platform
@@ -144,4 +145,3 @@ This platform enforces secure engineering best practices:
 
 ## 📄 License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more details.
-
