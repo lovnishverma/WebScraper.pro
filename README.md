@@ -145,3 +145,59 @@ This platform enforces secure engineering best practices:
 
 ## 📄 License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more details.
+
+
+# Test
+
+
+Test on  **Aaj Tak (Hindi News)**. News websites are excellent targets for scraping because they are rich in constantly updating structured data.
+
+Here are the three most valuable things you can scrape from this page, along with exactly how to fill out your configuration form for each!
+
+### 💡 Option 1: The Easiest & Cleanest Data (JSON-LD Metadata)
+
+News sites embed hidden structured data for Google. This page has a massive `ItemList` JSON-LD block containing the top 20+ trending headlines and their exact URLs. This is the cleanest way to get the top stories without dealing with messy HTML tags.
+
+* **Job Name:** AajTak Top Stories (JSON)
+* **Target URL:** [https://www.aajtak.in/](https://www.aajtak.in/)
+* **Scrape Type:** Static (Requests + BS4)
+* **Extraction Type:** JSON-LD Schema
+* **CSS Selector:** *(Leave blank)*
+* **Delay Between Requests (s):** 2
+
+### 💡 Option 2: Scraping All Article Headlines (Text)
+
+If you want to pull the visible text of every news headline on the page (Top stories, Sports, Entertainment, Tech, etc.).
+
+* **Job Name:** AajTak All Headlines
+* **Target URL:** [https://www.aajtak.in/](https://www.aajtak.in/)
+* **Scrape Type:** Static (Requests + BS4)
+* **Extraction Type:** Text Content
+* **CSS Selector:** `.title h3, .fv-cap h3, .sstitle-listing h3, .title-big h3`
+* **Delay Between Requests (s):** 2
+
+### 💡 Option 3: Scraping Article URLs (Links)
+
+If your goal is to build a crawler that finds news articles to scrape their full text later, you need the URLs of the articles.
+
+* **Job Name:** AajTak Article Links
+* **Target URL:** [https://www.aajtak.in/](https://www.aajtak.in/)
+* **Scrape Type:** Static (Requests + BS4)
+* **Extraction Type:** HTML Attributes
+* **CSS Selector:** `li[data-tb-region-item] a`
+* **Attribute Name:** `href`
+
+### 💡 Option 4: Scraping Thumbnail Images
+
+*Note: Because this site uses "lazy loading" for performance, the actual image URL isn't in the standard `src` attribute; it's hidden in `data-src`.*
+
+* **Job Name:** AajTak Thumbnails
+* **Target URL:** [https://www.aajtak.in/](https://www.aajtak.in/)
+* **Scrape Type:** Static (Requests + BS4)
+* **Extraction Type:** HTML Attributes
+* **CSS Selector:** `img.lazyload`
+* **Attribute Name:** `data-src`
+
+---
+
+
