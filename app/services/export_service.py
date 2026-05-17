@@ -19,7 +19,8 @@ from app.models import db, ScrapeJob, ScrapeResult, ExportRecord
 
 logger = logging.getLogger(__name__)
 
-EXPORT_DIR = Path("exports")
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+EXPORT_DIR = BASE_DIR / "exports"
 
 
 def _ensure_export_dir() -> Path:
