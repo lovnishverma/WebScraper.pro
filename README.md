@@ -8,6 +8,16 @@ pinned: false
 license: mit
 ---
 
+---
+title: WebScraper Pro
+emoji: 🕸️
+colorFrom: indigo
+colorTo: purple
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🕷️ WebScraper.pro — Premium Web Scraping Platform
 
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
